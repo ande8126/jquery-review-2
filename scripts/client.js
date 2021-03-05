@@ -3,16 +3,24 @@ let zoo = [];
 
 function onReady() {
     //button click
-    $( '#addAnimalButton' ).on( 'click', addAnimal )
+    $( '#addAnimalButton' ).on( 'click', addAnimal );
+    $( '#toggleInputButton').on('click', toggleInput );
+    //$( '#toggleOutputButton').on('click', toggleOutput );
 }//end onReady
 
 function addAnimal(){
     console.log( 'in addAnimal' );
-    //push animal into zoo
-    zoo.push( $('#animalIn' ).val());
-    $( '#animalIn' ).val( '' );
-    //update DOPM<
-    updateAnimals();
+    //if text is empty, flash
+    if( $( '#animalIn' ).val() === '' ) {
+        $( '#input' ).fadeOut( 200 ).fadeIn( 200 );
+    }//end no animal entered
+    else{ 
+        //else push animal into zoo
+        zoo.push( $('#animalIn' ).val());
+        $( '#animalIn' ).val( '' );
+        //update DOM
+        updateAnimals();
+        }//end else
 }//end addAnimal
 
 function updateAnimals(){
@@ -24,8 +32,12 @@ function updateAnimals(){
     for ( let i=0; i<zoo.length; i++ ) {
     //append each animal to the DOM
         el.append( `<li>${zoo[i]}</li>`);
-    }//end updateAnimals
-
-
+    }//end for
 
 }//end updateAnimals
+
+function toggleInput(){
+    //toggle the input DIV
+    $( '#input' ).toggle(200);
+
+}//end toggleInput
