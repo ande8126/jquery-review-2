@@ -6,6 +6,8 @@ function onReady() {
     $( '#addAnimalButton' ).on( 'click', addAnimal );
     $( '#toggleInputButton').on('click', toggleInput );
     $( '#toggleOutputButton').on('click', toggleOutput );
+    //click handlers for dynamically created els
+    $( '#animalsOut' ).on('click', '#animalLi', animalClick );
     //$( '#toggleOutputButton').on('click', toggleOutput );
 }//end onReady
 
@@ -32,10 +34,15 @@ function updateAnimals(){
     //loop thru the zoo
     for ( let i=0; i<zoo.length; i++ ) {
     //append each animal to the DOM
-        el.append( `<li>${zoo[i]}</li>`);
+        el.append( `<li id="animalLi" >${zoo[i]}</li>`);
     }//end for
 
 }//end updateAnimals
+
+function animalClick(){
+    console.log( 'in animalClick' );
+
+}
 
 function toggleInput(){
     console.log('in toggleInput');
