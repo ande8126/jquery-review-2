@@ -5,6 +5,7 @@ function onReady() {
     //button click
     $( '#addAnimalButton' ).on( 'click', addAnimal );
     $( '#toggleInputButton').on('click', toggleInput );
+    $( '#toggleOutputButton').on('click', toggleOutput );
     //$( '#toggleOutputButton').on('click', toggleOutput );
 }//end onReady
 
@@ -37,7 +38,11 @@ function updateAnimals(){
 }//end updateAnimals
 
 function toggleInput(){
-    //toggle the input DIV
-    $( '#input' ).toggle(200);
+    console.log('in toggleInput');
+    $( '#input' ).toggle();
+}
 
-}//end toggleInput
+function toggleOutput(){
+    console.log('in toggleOutput');
+    $( '#output' ).toggle();
+}//end toggleOutput
